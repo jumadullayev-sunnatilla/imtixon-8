@@ -38,7 +38,7 @@ const CommentClothes = () => {
   const { id } = useParams<{ id: string }>();
 
   // Fetch API
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["comment", id],
     queryFn: () =>
       axios
@@ -77,7 +77,7 @@ const CommentClothes = () => {
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>): void => {
     setAnchorEl(event.currentTarget);
   };
   const handleCloseMenu = () => {
@@ -192,7 +192,7 @@ const CommentClothes = () => {
                     <MenuItem value={5}>5</MenuItem>
                   </Select>
                 </FormControl>
-                <Button type="submit" disabled={mutation.isLoading}>
+                <Button type="submit" disabled={isLoading}>
                   Submit
                 </Button>
               </Stack>

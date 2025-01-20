@@ -5,8 +5,10 @@ import { Rating } from "@mui/material";
 import.meta.env.BASE__URL;
 import "./NewArriwals.scss";
 import { NavLink } from "react-router-dom";
+import Loading from "../loading/Loading";
+import { BsArrowRepeat } from "react-icons/bs";
 const NewArriwals = () => {
-  const { data } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["arriwals"],
     queryFn: () => {
       return axios
@@ -39,14 +41,39 @@ const NewArriwals = () => {
       );
     });
   console.log(data);
-
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+  if (isError) {
+    return (
+      <div className="container">
+        <div className="container flex flex-col items-center justify-center gap-20 w-2/3 ">
+          <h1 className="text-4xl font-extrabold text-center">
+            Nimadir hato ketdi yo internetga ulanib qaytadan koring{" "}
+          </h1>
+          <button
+            onClick={handleRefresh}
+            className="flex gap-1 items-center  font-bold py-4 px-20 border-[2px] border-black rounded-full w-max text-3xl hover:bg-black hover:text-white"
+          >
+            Qayta yuklash <BsArrowRepeat className="text-3xl" />
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className="container arriwals">
-      <h1 className="arriwals__title">New Arriwals</h1>
-      <div className="arriwals__clothes">{arriwalsClothes}</div>
-      <NavLink to={"/clothes"}>
-        <button className="arriwals__btn">View All</button>
-      </NavLink>
+    <div>
+      {isLoading ? (
+        <Loading n={4} />
+      ) : (
+        <div className="container arriwals">
+          <h1 className="arriwals__title">New Arriwals</h1>
+          <div className="arriwals__clothes">{arriwalsClothes}</div>
+          <NavLink to={"/clothes"}>
+            <button className="arriwals__btn">View All</button>
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 };

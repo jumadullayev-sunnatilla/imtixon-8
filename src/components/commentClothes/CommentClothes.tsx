@@ -15,11 +15,11 @@ import {
   Select,
   Stack,
 } from "@mui/material";
-import Add from "@mui/icons-material/Add";
 import { useRef, useState } from "react";
 import { ModalDialog } from "@mui/joy";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { MdCloudDone } from "react-icons/md";
+import { Toaster, toast } from "sonner";
 
 interface postComment {
   text: string;
@@ -38,7 +38,7 @@ const CommentClothes = () => {
   const { id } = useParams<{ id: string }>();
 
   // Fetch API
-  const { data, isLoading, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["comment", id],
     queryFn: () =>
       axios
@@ -144,12 +144,16 @@ const CommentClothes = () => {
 
     mutation.mutate({ body: newComment });
     setOpen(false);
+    toast.success(
+      "Izoh yozganingiz uchun rahmat!!! Uzr Saytni bir yangilang shunda korinadi izohingiz."
+    );
   };
 
   return (
     <div className="container comment pt-20 pr-5">
       <div className="flex justify-between px-3">
         <h1 className="text-4xl font-bold ">Comments</h1>
+        <Toaster richColors position="top-right" />
         <button
           onClick={() => setOpen(true)}
           className="rounded-3xl border px-5 py-2 hover:bg-black hover:text-white"

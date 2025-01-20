@@ -8,6 +8,7 @@ import { Rating } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, decrementCart, removeFromCart } from "../../app/cartSlice";
 import type { RootState } from "../../app/index";
+import { Toaster, toast } from "sonner";
 interface CartItem extends ClothingItem {
   quantity: number; // Cart item with quantity
 }
@@ -61,7 +62,7 @@ const DetailClothes = () => {
   );
 
   return (
-    <div className="container detail">
+    <div className="container detail pt-5">
       {detailImages}
       <div className="detail__data">
         <h1 className="detail__data-title">{clothes?.title}</h1>
@@ -106,20 +107,27 @@ const DetailClothes = () => {
           </div>
           {someElement ? (
             <button
-              onClick={() => dispatch(removeFromCart(data.id))}
+              onClick={() => {
+                dispatch(removeFromCart(data.id));
+                toast.error(`Malumot cartdan olindi`);
+              }}
               className="detail__data-stoks-cart px-10 py-2 border rounded-[60px] bg-black  text-white hover:bg-white hover:text-black"
             >
               Remove cart
             </button>
           ) : (
             <button
-              onClick={() => dispatch(addToCart(data))}
-              className="detail__data-stoks-cart px-10 py-2 border rounded-[60px] hover:bg-black   hover:text-white"
+              onClick={() => {
+                dispatch(addToCart(data));
+                toast.success("Malumot cartga qoshildi");
+              }}
+              className="detail__data-stoks-cart font-bold  px-10 py-2 border-[3px] border-black rounded-[60px] hover:bg-black   hover:text-white"
             >
               Add to card
             </button>
           )}
         </div>
+        <Toaster position="top-right" richColors />
       </div>
     </div>
   );

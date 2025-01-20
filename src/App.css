@@ -1,4 +1,12 @@
 .container {
-  max-width: 1280px;
+  max-width: 1240px;
   margin: 0 auto;
+}
+@font-face {
+  font-family: "myTitle";
+  src: url(/src/assets/fonts/Oswald-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "myText";
+  src: url(/src/assets/fonts/Satoshi-Variable.ttf);
 }

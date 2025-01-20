@@ -1,0 +1,111 @@
+.dress {
+  background-color: #f0f0f0;
+  padding: 70px 60px;
+  border-radius: 40px;
+  margin-top: 40px;
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "myTitle";
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &__el1 {
+    display: flex;
+    justify-content: space-between;
+    &-1 {
+      width: 33%;
+      height: 289px;
+      border-radius: 20px;
+      padding: 20px 30px;
+      &-title {
+        font-family: "myText";
+        font-size: 36px;
+        font-weight: 700;
+      }
+    }
+    &-2 {
+      width: 63%;
+      height: 289px;
+      border-radius: 20px;
+      padding: 20px 30px;
+      &-title {
+        font-family: "myText";
+        font-size: 36px;
+        font-weight: 700;
+      }
+    }
+  }
+  &__el2 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    &-1 {
+      width: 63%;
+      height: 289px;
+      border-radius: 20px;
+      padding: 20px 30px;
+      &-title {
+        font-family: "myText";
+        font-size: 36px;
+        font-weight: 700;
+      }
+    }
+    &-2 {
+      width: 33%;
+      height: 289px;
+      border-radius: 20px;
+      padding: 20px 30px;
+      &-title {
+        font-family: "myText";
+        font-size: 36px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 700px) {
+  .dress {
+    &__title {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    padding: 20px 30px;
+    &__el1 {
+      flex-wrap: wrap;
+      &-1 {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 20px;
+        &-title {
+          font-size: 25px;
+        }
+      }
+      &-2 {
+        height: 180px;
+        width: 100%;
+        &-title {
+          font-size: 25px;
+        }
+      }
+    }
+    &__el2 {
+      flex-wrap: wrap;
+      &-1 {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 20px;
+        &-title {
+          font-size: 25px;
+        }
+      }
+      &-2 {
+        height: 180px;
+        width: 100%;
+        &-title {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}

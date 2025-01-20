@@ -1,0 +1,62 @@
+.arriwals {
+  margin-top: 50px;
+  &__title {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "myTitle";
+    text-align: center;
+    line-height: 57px;
+    margin-bottom: 30px;
+  }
+  &__clothes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 15px;
+    &-box {
+      width: 295px;
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      &-images {
+        width: 100%;
+        height: 280px;
+      }
+      &-title {
+        font-size: 20px;
+        font-weight: 700;
+        font-family: "myText";
+      }
+      &-rating {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      &-price {
+        font-size: 24px;
+        font-weight: 700;
+        font-family: "myText";
+      }
+    }
+  }
+  &__btn {
+    font-size: 16px;
+    font-family: "myText";
+    font-weight: 700;
+    padding: 15px 80px;
+    border: 1px solid #00000050;
+    border-radius: 62px;
+    margin: 40px auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  &__btn:hover {
+    background: #000000;
+    color: aliceblue;
+  }
+}

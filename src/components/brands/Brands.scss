@@ -1,0 +1,13 @@
+.bg-brands {
+  background: #000;
+}
+.brands {
+  padding: 25px 10px;
+  display: flex;
+  justify-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  &__img {
+  }
+}

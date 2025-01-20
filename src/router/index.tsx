@@ -1,7 +1,9 @@
 import { useRoutes } from "react-router-dom";
 import Home from "../pages/home/Home";
-import About from "../pages/about/About";
 import Layout from "../pages/layout/Layout";
+import Cart from "../pages/cart/Cart";
+import Detail from "../pages/detail/Detail";
+import Clothes from "../pages/clothes/Clothes";
 const Routers = () => {
   return (
     <>
@@ -15,16 +17,21 @@ const Routers = () => {
               element: <Home />,
             },
             {
-              path: "/about",
-              element: <About />,
+              path: "/clothes",
+              element: <Clothes />,
             },
+            {
+              path: "/cart",
+              element: <Cart />,
+            },
+
             {
               path: "*",
               element: <div>404</div>,
             },
             {
               path: "/product/:id",
-              element: <div>detail</div>,
+              element: <Detail />,
             },
           ],
         },
